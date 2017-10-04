@@ -11,6 +11,12 @@ from PIL import Image, ImageDraw
 
 # -*- coding: utf-8 -*-
 
+"""
+Created on Mon Oct  2 13:02:22 2017
+
+@author: Fernando Castaño
+"""
+
 # Program to set http://miniature-calendar.com image of the day as desktop wallpaper.
 
 __author__ = 'Fernando Castaño'
@@ -77,51 +83,41 @@ def main():
     print(GetSystemMetrics(0) + "x" + GetSystemMetrics(1))
 
 
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Oct  2 13:02:22 2017
-
-@author: castafe
-"""
 
 
 
-url = "http://miniature-calendar.com/wp-content/uploads/2017/10/171002mon1.jpg"
-file_name_o1 = "C:\\Users\\castafe\\Documents\\image1.jpg"
-file_name_o2 = "C:\\Users\\castafe\\Documents\\image2.jpg"
+    unique_url_image = "http://miniature-calendar.com/wp-content/uploads/2017/10/171002mon1.jpg"
+    file_name_o1 = "C:\\Users\\castafe\\Documents\\image1.jpg"
+    file_name_o2 = "C:\\Users\\castafe\\Documents\\image2.jpg"
 
-# -------------- opcion 1
-# Download the file from `url` and save it locally under `file_name`:
-with urllib.request.urlopen(url) as response, open(file_name_o1, 'wb') as out_file:
-    shutil.copyfileobj(response, out_file)
+    # -------------- opcion 1
+    # Download the file from `url` and save it locally under `file_name`:
+    with urllib.request.urlopen(unique_url_image) as response, open(file_name_o1, 'wb') as out_file:
+        shutil.copyfileobj(response, out_file)
 
-# -------------- opcion 2
-# Download the file from `url` and save it locally under `file_name`:
-#with urllib.request.urlopen(url) as response, open(file_name_o2, 'wb') as out_file:
-#    data = response.read()  # a `bytes` object
-#    out_file.write(data)
+    # -------------- opcion 2
+    # Download the file from `url` and save it locally under `file_name`:
+    # with urllib.request.urlopen(url) as response, open(file_name_o2, 'wb') as out_file:
+    #    data = response.read()  # a `bytes` object
+    #    out_file.write(data)
 
-# --------------
-# number of monitors
-print(len(get_monitors()))
+    # --------------
+    # number of monitors
+    print(len(get_monitors()))
 
-for m in get_monitors():
-    print(str(m))
+    for m in get_monitors():
+        print(str(m))
 
+    # ------------------
 
-# ------------------
-
-img = Image.open(file_name_o1)
-# first screen
-img = img.resize((1080, 1080), Image.ANTIALIAS)
-borde = Image.new("RGB", (1920, 1080))
-ImageDraw.Draw.fill()
-borde.paste(img, (0, 0))
-borde.save("C:\\Users\\castafe\\Documents\\image_wall.jpg")
-
+    img = Image.open(file_name_o1)
+    # first screen
+    img = img.resize((1080, 1080), Image.ANTIALIAS)
+    borde = Image.new("RGB", (1920, 1080))
+    ImageDraw.Draw.fill()
+    borde.paste(img, (0, 0))
+    borde.save("C:\\Users\\castafe\\Documents\\image_wall.jpg")
 
 
 if __name__ == '__main__':
     main()
-
-
