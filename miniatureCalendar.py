@@ -11,7 +11,7 @@ from PIL import Image, ImageDraw
 
 # -*- coding: utf-8 -*-
 
-# Program to set http://miniature-calendar.com image of the day as desktop wallpaper.
+# Script to set desktop wallpaper with http://miniature-calendar.com image of the day.
 
 __author__ = 'Fernando Castaño'
 __copyright__ = 'Copyright (C) 2017'
